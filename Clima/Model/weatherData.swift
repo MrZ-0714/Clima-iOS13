@@ -5,12 +5,14 @@
 //  Created by Zimo Zhao on 4/12/21.
 //  Copyright © 2021 App Brewery. All rights reserved.
 //
+
 import Foundation
 
 struct WeatherData: Codable {
     let name: String
     let main: Main
     let weather: [Weather]
+    let sys: Sys
 }
 
 struct Main: Codable {
@@ -18,6 +20,17 @@ struct Main: Codable {
 }
 
 struct Weather: Codable {
-    let description: String
     let id: Int
+    let main: String
+    let description: String
+    let icon: String
+}
+
+struct Sys: Codable {
+    let type: Int
+    let id: Int
+    let country: String
+    let sunrise: Int
+    let sunset: Int
+    
 }
