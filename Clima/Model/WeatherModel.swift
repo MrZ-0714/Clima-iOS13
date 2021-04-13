@@ -3,7 +3,6 @@
 //  Clima
 //
 //  Created by Zimo Zhao on 4/12/21.
-//  Copyright © 2021 App Brewery. All rights reserved.
 //
 
 import Foundation
@@ -12,6 +11,7 @@ struct WeatherModel {
     let conditionId: Int
     let cityName: String
     let temperature: Double
+    let sys: Sys
     
     var temperatureString: String {
         return String(format: "%.1f", temperature)
@@ -37,6 +37,5 @@ struct WeatherModel {
             return "cloud"
         }
     }
-    
-    let sys: Sys
+
 }
