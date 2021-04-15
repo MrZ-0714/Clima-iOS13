@@ -21,12 +21,13 @@ class WeatherViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        locationManager.requestWhenInUseAuthorization()
-        locationManager.requestLocation()
-        
         wearherManager.delegate = self
         searchTextField.delegate = self
         locationManager.delegate = self
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
     }
     
 }
@@ -83,6 +84,10 @@ extension WeatherViewController: WeatherManagerDelegate{
 //MARK: - CLLocationManagerDelegate
 
 extension WeatherViewController: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print(error)
+    }
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if locations.first != nil {
             print("location:\(locations)")
